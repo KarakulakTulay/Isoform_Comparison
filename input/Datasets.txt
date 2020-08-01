@@ -1,0 +1,13 @@
+Denmark	mmc2	Kahraman
+BRCA_cancer	brca	Breast/Breast-AdenoCA
+COAD_cancer	coad	Colon/ColoRect-AdenoCA
+HNSC_cancer	hnsc	-
+KICH_cancer	kich	Kidney/Kidney-ChRCC
+KIRC_cancer	kirc	Kidney/Kidney-RCC
+KIRP_cancer	kirp	-
+LIHC_cancer	lihc	Liver/Liver-HCC
+LUAD_cancer	luad	Lung/Lung-AdenoCA
+LUSC_cancer	lusc	Lung/Lung-SCC
+PRAD_cancer	prad	Prostate/Prost-AdenoCA
+STAD_cancer	-	Stomach/Stomach-AdenoCA
+THCA_cancer	thca	Thyroid/Thy-AdenoCA
