@@ -1,0 +1,164 @@
+---
+title: "Overlap Analysis of Isoform Switching Events in Pan-Cancer Studies "
+author: "Tülay Karakulak"
+date: "5/16/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
+```{r}
+if (!require(devtools)) install.packages("devtools")
+devtools::install_github("yanlinlin82/ggvenn")
+```
+
+
+## GeneSet Analysis
+
+```{r}
+library(ggvenn)
+Kahraman_paths <- file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/GeneSets/Kahraman", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+Clemente_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/GeneSets/Clemente", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+Vitting_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/GeneSets/Vitting/", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+for (i in 1:9) {
+  Kahraman = read.csv(Kahraman_paths[i], header = FALSE)
+  Clemente = read.csv(Clemente_paths[i], header = FALSE)
+  Vitting = read.csv(Vitting_paths[i], header = FALSE)
+  Genelist <- list(
+  Kahraman_Study = Kahraman$V1,
+  Clemente_Study = Clemente$V1,
+  Vitting_Study = Vitting$V1
+  )
+
+  print(ggvenn(
+  Genelist, 
+  fill_color = c("skyblue1", "#EFC000FF", "tomato1"),
+  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2
+  ))
+  
+  print(intersect(intersect(Kahraman, Clemente), Vitting))
+  }
+```
+
+## Isoform Switch Analysis
+
+```{r}
+
+Kahraman_paths <- file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Kahraman", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+Clemente_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Clemente", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+Vitting_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Vitting/", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+for (i in 1:9) {
+  Kahraman = read.csv(Kahraman_paths[i], header = TRUE)
+  Clemente = read.csv(Clemente_paths[i], header = TRUE)
+  Vitting = read.csv(Vitting_paths[i], header = TRUE)
+  Genelist <- list(
+  Kahraman_Study = Kahraman$Normal_Isoform_Cancer_Isoform,
+  Clemente_Study = Clemente$Normal_Isoform_Cancer_Isoform,
+  Vitting_Study = Vitting$Normal_Isoform_Cancer_Isoform
+  )
+
+  print(ggvenn(
+  Genelist, 
+  fill_color = c("skyblue1", "#EFC000FF", "tomato1"),
+  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2
+  ))
+  
+  print(intersect(intersect(Kahraman, Clemente), Vitting))
+  }
+  
+
+```
+
+## Normal Isoform Analysis
+
+```{r}
+library(tidyr)
+
+Kahraman_paths <- file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch//Kahraman", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+Clemente_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Clemente", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+Vitting_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Vitting/", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+for (i in 1:9) {
+  Kahraman = read.csv(Kahraman_paths[i], header = TRUE)
+  
+  Kahraman_Normals <- (Kahraman %>% separate(Normal_Isoform_Cancer_Isoform, c("Normal", "Cancer"),  "_"))[,1][2:length(Kahraman[,1])]
+  
+  Clemente = read.csv(Clemente_paths[i], header = TRUE)
+  
+  Clemente_Normals <- (Clemente %>% separate(Normal_Isoform_Cancer_Isoform, c("Normal", "Cancer"),  "_"))[,1][2:length(Clemente[,1])]
+  
+  Vitting = read.csv(Vitting_paths[i], header = TRUE)
+  
+  Vitting_Normals <- (Vitting %>% separate(Normal_Isoform_Cancer_Isoform, c("Normal", "Cancer"),  "_"))[,1][2:length(Vitting[,1])]
+    
+  Genelist <- list(
+  Kahraman_Study = unique(Kahraman_Normals),
+  Clemente_Study = unique(Clemente_Normals),
+  Vitting_Study = unique(Vitting_Normals)
+  )
+
+  print(ggvenn(
+  Genelist, 
+  fill_color = c("skyblue1", "#EFC000FF", "tomato1"),
+  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2
+  ))
+  
+  
+  print(intersect(intersect(Kahraman_Normals, Clemente_Normals), Vitting_Normals))
+  }
+  
+```
+
+## Cancer Isoform Analysis
+```{r}
+library(tidyr)
+
+Kahraman_paths <- file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch//Kahraman", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+Clemente_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Clemente", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+Vitting_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Vitting/", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+
+for (i in 1:9) {
+  Kahraman = read.csv(Kahraman_paths[i], header = TRUE)
+  
+  Kahraman_Cancer <- (Kahraman %>% separate(Normal_Isoform_Cancer_Isoform, c("Normal", "Cancer"),  "_"))[,2][2:length(Kahraman[,1])]
+  
+  Clemente = read.csv(Clemente_paths[i], header = TRUE)
+  
+  Clemente_Cancer <- (Clemente %>% separate(Normal_Isoform_Cancer_Isoform, c("Normal", "Cancer"),  "_"))[,2][2:length(Clemente[,1])]
+  
+  Vitting = read.csv(Vitting_paths[i], header = TRUE)
+  
+  Vitting_Cancer <- (Vitting %>% separate(Normal_Isoform_Cancer_Isoform, c("Normal", "Cancer"),  "_"))[,2][2:length(Vitting[,1])]
+    
+  Genelist <- list(
+  Kahraman_Study = unique(Kahraman_Cancer),
+  Clemente_Study = unique(Clemente_Cancer),
+  Vitting_Study = unique(Vitting_Cancer)
+  )
+
+  print(ggvenn(
+  Genelist, 
+  fill_color = c("skyblue1", "#EFC000FF", "tomato1"),
+  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2
+  ))
+  
+  
+  print(intersect(intersect(Kahraman_Cancer, Clemente_Cancer), Vitting_Cancer))  
+  }
+  
+```
+
+
+
