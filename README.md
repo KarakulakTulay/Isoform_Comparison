@@ -5,4 +5,4 @@
 
  2) Climente-González, H., Porta-Pardo, E., Godzik, A., & Eyras, E. (2017). The Functional Impact of Alternative Splicing in Cancer. Cell Reports, 20(9), 2215–2226. http://doi.org/10.1016/j.celrep.2017.08.012
 
- 3) Kahraman, A., Karakulak, T., Szklarczyk, D., von Mering, C. Pathogenic impact of transcript isoform switching in 1209 cancer samples covering 27 cancer types using an isoform-specific interaction network
+ 3) Kahraman, A., Karakulak, T., Szklarczyk, D., von Mering, C. (2020). Pathogenic impact of transcript isoform switching in 1,209 cancer samples covering 27 cancer types using an isoform-specific interaction network, Sci Rep 10, 14453 (2020). https://doi.org/10.1038/s41598-020-71221-5 
