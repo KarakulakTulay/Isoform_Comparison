@@ -38,8 +38,8 @@ for (i in 1:9) {
   print(ggvenn(
   Genelist, 
   fill_color = c("skyblue1", "#EFC000FF", "tomato1"),
-  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2
-  ))
+  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2.5
+  ) + ggtitle(tail(strsplit(Kahraman_paths[i], split='/')[[1]],1)))
   
   print(intersect(intersect(Kahraman, Clemente), Vitting))
   }
@@ -68,8 +68,8 @@ for (i in 1:9) {
   print(ggvenn(
   Genelist, 
   fill_color = c("skyblue1", "#EFC000FF", "tomato1"),
-  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2
-  ))
+  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2.5
+  )+ ggtitle(tail(strsplit(Kahraman_paths[i], split='/')[[1]],1)))
   
   print(intersect(intersect(Kahraman, Clemente), Vitting))
   }
@@ -110,8 +110,8 @@ for (i in 1:9) {
   print(ggvenn(
   Genelist, 
   fill_color = c("skyblue1", "#EFC000FF", "tomato1"),
-  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2
-  ))
+  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2.5
+  ) + ggtitle(tail(strsplit(Kahraman_paths[i], split='/')[[1]],1)))
   
   
   print(intersect(intersect(Kahraman_Normals, Clemente_Normals), Vitting_Normals))
@@ -151,8 +151,8 @@ for (i in 1:9) {
   print(ggvenn(
   Genelist, 
   fill_color = c("skyblue1", "#EFC000FF", "tomato1"),
-  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2
-  ))
+  stroke_size = 0.3, set_name_size = 4,text_color = "black", text_size = 2.5
+  ) + ggtitle(tail(strsplit(Kahraman_paths[i], split='/')[[1]],1)))
   
   
   print(intersect(intersect(Kahraman_Cancer, Clemente_Cancer), Vitting_Cancer))  
