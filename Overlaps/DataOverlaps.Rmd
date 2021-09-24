@@ -5,25 +5,21 @@ date: "5/16/2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
-
-```{r}
-if (!require(devtools)) install.packages("devtools")
-devtools::install_github("yanlinlin82/ggvenn")
-```
-
 
 ## GeneSet Analysis
 
-```{r}
+##### As KIRC and KIRP were analyzed under Kidney-RCC in Kahraman study, we have merged those two cancer types in Vitting and Climente-Gonzales studies in our analysis to detect the overlaps. 
+
+```{r, echo=FALSE}
 library(ggvenn)
-Kahraman_paths <- file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/GeneSets/Kahraman", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+Kahraman_paths <- file.path("/Users/tulaykarakulak/Documents/GitHub/Isoform_Comparison/Overlaps/GeneSets/Kahraman", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
 
-Clemente_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/GeneSets/Clemente", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+Clemente_paths = file.path("/Users/tulaykarakulak/Documents/GitHub/Isoform_Comparison/Overlaps/GeneSets/Clemente", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_KIRP_unique_cancer"))
 
-Vitting_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/GeneSets/Vitting/", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+Vitting_paths = file.path("/Users/tulaykarakulak/Documents/GitHub/Isoform_Comparison/Overlaps/GeneSets/Vitting", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_KIRP_unique_cancer"))
 
 for (i in 1:9) {
   Kahraman = read.csv(Kahraman_paths[i], header = FALSE)
@@ -47,13 +43,13 @@ for (i in 1:9) {
 
 ## Isoform Switch Analysis
 
-```{r}
+```{r, echo=FALSE}
 
-Kahraman_paths <- file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Kahraman", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+Kahraman_paths <- file.path("/Users/tulaykarakulak/Documents/GitHub/Isoform_Comparison/Overlaps/IsoSwitch/Kahraman", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
 
-Clemente_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Clemente", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+Clemente_paths = file.path("/Users/tulaykarakulak/Documents/GitHub/Isoform_Comparison/Overlaps/IsoSwitch/Clemente", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_KIRP_unique_cancer"))
 
-Vitting_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Vitting/", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+Vitting_paths = file.path("/Users/tulaykarakulak/Documents/GitHub/Isoform_Comparison/Overlaps/IsoSwitch/Vitting/", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_KIRP_unique_cancer"))
 
 for (i in 1:9) {
   Kahraman = read.csv(Kahraman_paths[i], header = TRUE)
@@ -79,14 +75,14 @@ for (i in 1:9) {
 
 ## Normal Isoform Analysis
 
-```{r}
+```{r, echo=FALSE}
 library(tidyr)
 
 Kahraman_paths <- file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch//Kahraman", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
 
-Clemente_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Clemente", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+Clemente_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Clemente", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_KIRP_Clemente"))
 
-Vitting_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Vitting/", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))
+Vitting_paths = file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch/Vitting/", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_KIRP_Vitting"))
 
 for (i in 1:9) {
   Kahraman = read.csv(Kahraman_paths[i], header = TRUE)
@@ -120,7 +116,7 @@ for (i in 1:9) {
 ```
 
 ## Cancer Isoform Analysis
-```{r}
+```{r, echo=FALSE}
 library(tidyr)
 
 Kahraman_paths <- file.path("/Users/tulaykarakulak/Documents/PhD/Review/Data_Comparison/ForRVenn/IsoSwitch//Kahraman", c("BRCA_cancer","COAD_cancer","KICH_cancer","LIHC_cancer","LUAD_cancer","LUSC_cancer","PRAD_cancer","THCA_cancer","KIRC_cancer"))

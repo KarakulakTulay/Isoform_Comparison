@@ -1,19 +1,19 @@
-Rscript Supertest_Genes.R ../GeneSets/Kahraman/BRCA_cancer ../Clemente/BRCA_cancer ../GeneSets/Vitting/BRCA_cancer
-Rscript Supertest_Genes.R ../GeneSets/Kahraman/COAD_cancer ../Clemente/COAD_cancer ../GeneSets/Vitting/COAD_cancer
-Rscript Supertest_Genes.R ../GeneSets/Kahraman/KICH_cancer ../Clemente/KICH_cancer ../GeneSets/Vitting/KICH_cancer
-Rscript Supertest_Genes.R ../GeneSets/Kahraman/KIRC_cancer ../Clemente/KIRC_cancer ../GeneSets/Vitting/KIRC_cancer
-Rscript Supertest_Genes.R ../GeneSets/Kahraman/LIHC_cancer ../Clemente/LIHC_cancer ../GeneSets/Vitting/LIHC_cancer
-Rscript Supertest_Genes.R ../GeneSets/Kahraman/LUAD_cancer ../Clemente/LUAD_cancer ../GeneSets/Vitting/LUAD_cancer
-Rscript Supertest_Genes.R ../GeneSets/Kahraman/LUSC_cancer ../Clemente/LUSC_cancer ../GeneSets/Vitting/LUSC_cancer
-Rscript Supertest_Genes.R ../GeneSets/Kahraman/PRAD_cancer ../Clemente/PRAD_cancer ../GeneSets/Vitting/PRAD_cancer
-Rscript Supertest_Genes.R ../GeneSets/Kahraman/STAD_cancer ../Clemente/STAD_cancer ../GeneSets/Vitting/STAD_cancer
-Rscript Supertest_Genes.R ../GeneSets/Kahraman/THCA_cancer ../Clemente/THCA_cancer ../GeneSets/Vitting/THCA_cancer
+Rscript Supertest_Genes.R ../GeneSets/Kahraman/BRCA_cancer ../GeneSets/Clemente/BRCA_cancer ../GeneSets/Vitting/BRCA_cancer
+Rscript Supertest_Genes.R ../GeneSets/Kahraman/COAD_cancer ../GeneSets/Clemente/COAD_cancer ../GeneSets/Vitting/COAD_cancer
+Rscript Supertest_Genes.R ../GeneSets/Kahraman/KICH_cancer ../GeneSets/Clemente/KICH_cancer ../GeneSets/Vitting/KICH_cancer
+Rscript Supertest_Genes.R ../GeneSets/Kahraman/KIRC_cancer ../GeneSets/Clemente/KIRC_KIRP_Clemente ../GeneSets/Vitting/KIRC_KIRP_Vitting
+Rscript Supertest_Genes.R ../GeneSets/Kahraman/LIHC_cancer ../GeneSets/Clemente/LIHC_cancer ../GeneSets/Vitting/LIHC_cancer
+Rscript Supertest_Genes.R ../GeneSets/Kahraman/LUAD_cancer ../GeneSets/Clemente/LUAD_cancer ../GeneSets/Vitting/LUAD_cancer
+Rscript Supertest_Genes.R ../GeneSets/Kahraman/LUSC_cancer ../GeneSets/Clemente/LUSC_cancer ../GeneSets/Vitting/LUSC_cancer
+Rscript Supertest_Genes.R ../GeneSets/Kahraman/PRAD_cancer ../GeneSets/Clemente/PRAD_cancer ../GeneSets/Vitting/PRAD_cancer
+Rscript Supertest_Genes.R ../GeneSets/Kahraman/STAD_cancer ../GeneSets/Clemente/STAD_cancer ../GeneSets/Vitting/STAD_cancer
+Rscript Supertest_Genes.R ../GeneSets/Kahraman/THCA_cancer ../GeneSets/Clemente/THCA_cancer ../GeneSets/Vitting/THCA_cancer
 
 
 Rscript Supertest_IsoformSwitch.R ../IsoSwitch/Kahraman/BRCA_cancer ../IsoSwitch/Clemente/BRCA_cancer ../IsoSwitch/Vitting/BRCA_cancer
 Rscript Supertest_IsoformSwitch.R ../IsoSwitch/Kahraman/COAD_cancer ../IsoSwitch/Clemente/COAD_cancer ../IsoSwitch/Vitting/COAD_cancer
 Rscript Supertest_IsoformSwitch.R ../IsoSwitch/Kahraman/KICH_cancer ../IsoSwitch/Clemente/KICH_cancer ../IsoSwitch/Vitting/KICH_cancer
-Rscript Supertest_IsoformSwitch.R ../IsoSwitch/Kahraman/KIRC_cancer ../IsoSwitch/Clemente/KIRC_cancer ../IsoSwitch/Vitting/KIRC_cancer
+Rscript Supertest_IsoformSwitch.R ../IsoSwitch/Kahraman/KIRC_cancer ../IsoSwitch/Clemente/KIRC_KIRP_Clemente ../IsoSwitch/Vitting/KIRC_KIRP_Vitting
 Rscript Supertest_IsoformSwitch.R ../IsoSwitch/Kahraman/LIHC_cancer ../IsoSwitch/Clemente/LIHC_cancer ../IsoSwitch/Vitting/LIHC_cancer
 Rscript Supertest_IsoformSwitch.R ../IsoSwitch/Kahraman/LUAD_cancer ../IsoSwitch/Clemente/LUAD_cancer ../IsoSwitch/Vitting/LUAD_cancer
 Rscript Supertest_IsoformSwitch.R ../IsoSwitch/Kahraman/LUSC_cancer ../IsoSwitch/Clemente/LUSC_cancer ../IsoSwitch/Vitting/LUSC_cancer
